@@ -39,7 +39,7 @@ function renderWeather(json) {
         renderLight();
       }
 
-
+// going to remove the comment section, it does not fully fit with the rest of the project
 
 const newComment = function(event) {
     event.preventDefault()
