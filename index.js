@@ -25,9 +25,10 @@ function renderWeather(json) {
         document.querySelector('#weatherIcon').src = '/img/' + json.weather[0].icon + '.png';
         document.querySelector('#feels').innerHTML = "Feels like " + Math.floor(json.main.feels_like) + " °F";
         
-        document.querySelector('#tempMax').innerHTML = "High Temp of " + Math.floor(json.main.temp_max) + "  °F";
-        document.querySelector('#tempLow').innerHTML = "Low Temp of " + Math.floor(json.main.temp_min) + "  °F";
-        document.querySelector('#windSpeed').innerHTML = "A wind speed of " + Math.floor(json.wind.speed) + " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph";
+        document.querySelector('#tempMax').innerHTML = "High Tempature of " + Math.floor(json.main.temp_max) + "  °F";
+        document.querySelector('#tempLow').innerHTML = "Low Tempature of " + Math.floor(json.main.temp_min) + "  °F";
+        document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph";
+        //+ " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph";
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
         document.querySelector('#changeLocationForm').addEventListener("submit", () => changeLocation(event));
 
