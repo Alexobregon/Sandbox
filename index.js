@@ -21,7 +21,7 @@ function renderWeather(json) {
   let notify = document.getElementById("err");
 
   if (!json.main) {
-    notify.innerHTML = "City not recognized, Please verify spelling or try another city.";
+    notify.innerHTML = "City not recognized, Please verify spelling or try another city";
     notify.style.display = "block"; }
     else {notify.style.display = "none"; }
 
@@ -35,7 +35,9 @@ function renderWeather(json) {
         document.querySelector('#feels').innerHTML = "Feels like " + Math.floor(json.main.feels_like) + " °F";
         document.querySelector('#tempMax').innerHTML = "High Tempature of " + Math.floor(json.main.temp_max) + "  °F";
         document.querySelector('#tempLow').innerHTML = "Low Tempature of " + Math.floor(json.main.temp_min) + "  °F";
-        document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph";
+        if (json.wind.gust > 0) {
+        document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph"; }
+        else {document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph." }
         // note for above code, displays NaN if there is no gust, need to check API docs
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
         document.querySelector('#changeLocationForm').addEventListener("submit", () => changeLocation(event));
