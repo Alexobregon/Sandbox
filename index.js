@@ -1,8 +1,8 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-let form = document.querySelector("#commentForm")
-form.addEventListener('submit', newComment)
+// let form = document.querySelector("#commentForm")
+// form.addEventListener('submit', newComment)
 })
 let storage;
 let weatherLocation = 'Seattle';
