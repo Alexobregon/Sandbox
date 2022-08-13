@@ -24,11 +24,10 @@ function renderWeather(json) {
         document.querySelector('#weather').innerHTML = json.weather[0].description;
         document.querySelector('#weatherIcon').src = '/img/' + json.weather[0].icon + '.png';
         document.querySelector('#feels').innerHTML = "Feels like " + Math.floor(json.main.feels_like) + " °F";
-        
         document.querySelector('#tempMax').innerHTML = "High Tempature of " + Math.floor(json.main.temp_max) + "  °F";
         document.querySelector('#tempLow').innerHTML = "Low Tempature of " + Math.floor(json.main.temp_min) + "  °F";
-        document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph";
-        //+ " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph";
+        document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph";
+        // note for above code, displays NaN if there is no gust, need to check API docs
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
         document.querySelector('#changeLocationForm').addEventListener("submit", () => changeLocation(event));
 
