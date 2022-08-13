@@ -1,8 +1,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-// let form = document.querySelector("#commentForm")
-// form.addEventListener('submit', newComment)
+
 })
 let storage;
 let weatherLocation = 'Seattle';
@@ -14,12 +13,22 @@ function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderWeather(data));
-}
+  }
+
 
 function renderWeather(json) {
   console.log(json);
-    storage = json
+  let notify = document.getElementById("err");
+
+  if (!json.main) {
+    notify.innerHTML = "City not recognized, Please verify spelling or try another city.";
+    notify.style.display = "block"; }
+    else {notify.style.display = "none"; }
+
+
+  storage = json
     const div = document.querySelector('#main');
+
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
         document.querySelector('#weatherIcon').src = '/img/' + json.weather[0].icon + '.png';
@@ -30,12 +39,13 @@ function renderWeather(json) {
         // note for above code, displays NaN if there is no gust, need to check API docs
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
         document.querySelector('#changeLocationForm').addEventListener("submit", () => changeLocation(event));
-
+        
         recommend();
         windAlert();
         renderDark();
         renderLike();
         renderLight();
+        
       }
 
 // going to remove the comment section, it does not fully fit with the rest of the project
@@ -176,9 +186,9 @@ function renderWeather(json) {
 
       fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
       .then(response => response.json())
-      .then(data => renderWeather(data));      
-
-    } 
+      .then(data => renderWeather(data));  
+    
+    }
 
 
     
