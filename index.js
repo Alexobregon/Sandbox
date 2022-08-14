@@ -54,6 +54,10 @@ function renderWeather(json) {
         
       }
 
+// need a way for the above code not to stack while changing locations multiple times
+
+
+
 // going to remove the comment section, it does not fully fit with the rest of the project
 
 // const newComment = function(event) {
