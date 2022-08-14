@@ -13,6 +13,7 @@ function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderWeather(data));
+    console.log("fweather")
   }
 
 
@@ -41,7 +42,7 @@ function renderWeather(json) {
         document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph"; }
         else {document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph." }
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
-        document.querySelector('#changeLocationForm').addEventListener("submit", () => changeLocation(event));
+        document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
         
         recommend();
         windAlert();
@@ -50,7 +51,7 @@ function renderWeather(json) {
         renderLight();
         if (D)
        {document.getElementById('main').style.backgroundColor = '#202020';}
-      console.log(D)
+      
         
       }
 
