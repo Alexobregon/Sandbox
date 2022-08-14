@@ -17,6 +17,7 @@ function fetchWeather() {
 
 
 function renderWeather(json) {
+ 
   console.log(json);
   let notify = document.getElementById("err");
 
@@ -29,6 +30,7 @@ function renderWeather(json) {
   storage = json
     const div = document.querySelector('#main');
 
+
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
         document.querySelector('#weatherIcon').src = '/img/' + json.weather[0].icon + '.png';
@@ -38,7 +40,6 @@ function renderWeather(json) {
         if (json.wind.gust > 0) {
         document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph"; }
         else {document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph." }
-        // note for above code, displays NaN if there is no gust, need to check API docs
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
         document.querySelector('#changeLocationForm').addEventListener("submit", () => changeLocation(event));
         
@@ -47,6 +48,9 @@ function renderWeather(json) {
         renderDark();
         renderLike();
         renderLight();
+        if (D)
+       {document.getElementById('main').style.backgroundColor = '#202020';}
+      console.log(D)
         
       }
 
@@ -113,7 +117,7 @@ function renderWeather(json) {
     }
     
 
-    
+    let D = false
     function renderDark() {
       document.getElementById('darkBtn').addEventListener("click", () => darkMode());
       }
@@ -125,8 +129,6 @@ function renderWeather(json) {
         document.getElementById('right').style.backgroundColor = '#202020';
         document.getElementById('right').style.color = 'white';
         document.getElementById('container').style.backgroundColor = '#202020';
-        document.getElementById('textComment').style.backgroundColor = '#202020';
-        document.getElementById('textComment').style.color = 'white';
         document.getElementById('textLocation').style.backgroundColor = '#202020';
         document.getElementById('textLocation').style.color = 'white';
         document.getElementById('darkBtn').style.backgroundColor = '#202020';
@@ -135,6 +137,8 @@ function renderWeather(json) {
         document.getElementById('lightBtn').style.color = 'white';
         document.getElementById('button1').style.backgroundColor = '#202020';
         document.getElementById('button1').style.color = 'white';
+        (D = true)
+        console.log(D)
         
       }
 
@@ -149,8 +153,6 @@ function renderWeather(json) {
         document.getElementById('right').style.backgroundColor = '#d4d4d4';
         document.getElementById('right').style.color = 'black';
         document.getElementById('container').style.backgroundColor = '#5F8DF0';
-        document.getElementById('textComment').style.backgroundColor = '#FFFFFF';
-        document.getElementById('textComment').style.color = 'black';
         document.getElementById('textLocation').style.backgroundColor = '#FFFFFF';
         document.getElementById('textLocation').style.color = 'black';
         document.getElementById('darkBtn').style.backgroundColor = '#FFFFFF';
@@ -159,7 +161,7 @@ function renderWeather(json) {
         document.getElementById('lightBtn').style.color = 'black';
         document.getElementById('button1').style.backgroundColor = '#FFFFFF';
         document.getElementById('button1').style.color = 'black';
-      
+        (D = false)
       }
 
 
@@ -175,14 +177,15 @@ function renderWeather(json) {
           numbers.innerHTML = parseInt(numbers.innerHTML) + 1;
         }
 
-
     function changeLocation(event) {
       event.preventDefault();
 
       let input = event.target.textLocation.value;
-      
+     
+    //  document.getElementById('container').style.backgroundColor = '#202020';
       
 
+      
       weatherLocation = `${input} `;
       //event.target.textLocation.value = ''
 
@@ -198,5 +201,5 @@ function renderWeather(json) {
   
 
      
-     fetchWeather();
+  fetchWeather();
      
