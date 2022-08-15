@@ -1,11 +1,11 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
+  document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
 })
 let storage;
 let weatherLocation = 'Seattle';
-let delBtn = document.getElementsByClassName('delete');
+// let delBtn = document.getElementsByClassName('delete');
 
 
 
@@ -13,12 +13,14 @@ function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderWeather(data));
-    console.log("fweather")
+    // console.log(weatherLocation)
+    
   }
 
 
 function renderWeather(json) {
- 
+
+
   console.log(json);
   let notify = document.getElementById("err");
 
@@ -31,7 +33,7 @@ function renderWeather(json) {
   storage = json
     const div = document.querySelector('#main');
 
-
+    
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
         document.querySelector('#weatherIcon').src = '/img/' + json.weather[0].icon + '.png';
@@ -42,8 +44,8 @@ function renderWeather(json) {
         document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph, with gusts up to " + Math.floor(json.wind.gust) + " mph"; }
         else {document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph." }
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
-        document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
         
+    
         recommend();
         windAlert();
         renderDark();
@@ -51,9 +53,11 @@ function renderWeather(json) {
         renderLight();
         if (D)
        {document.getElementById('main').style.backgroundColor = '#202020';}
-      
         
       }
+
+
+      
 
 // need a way for the above code not to stack while changing locations multiple times
 
@@ -186,18 +190,22 @@ function renderWeather(json) {
       event.preventDefault();
 
       let input = event.target.textLocation.value;
-     
+      
     //  document.getElementById('container').style.backgroundColor = '#202020';
       
-
+    
       
       weatherLocation = `${input} `;
-      //event.target.textLocation.value = ''
-
-      fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
-      .then(response => response.json())
-      .then(data => renderWeather(data));  
-    
+      
+      // console.log(weatherLocation)
+      // fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
+      // .then(response => response.json())
+      // .then(data => renderWeather(data));  
+      
+      
+      fetchWeather();
+      event.target.textLocation.value = ''
+      console.log(weatherLocation)
     }
 
 
