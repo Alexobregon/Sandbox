@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 let storage;
 let weatherLocation = 'Seattle';
-// let delBtn = document.getElementsByClassName('delete');
+let IsDarkmode = false;
 
 
 
@@ -51,7 +51,7 @@ function renderWeather(json) {
         windAlert();
         renderDark();
         renderLight();
-        if (D)
+        if (IsDarkmode)
        {document.getElementById('main').style.backgroundColor = '#202020';}
         
       }
@@ -94,7 +94,6 @@ function renderWeather(json) {
     }
     
 
-    let D = false
     function renderDark() {
       document.getElementById('darkBtn').addEventListener("click", () => darkMode());
       }
@@ -114,8 +113,8 @@ function renderWeather(json) {
         document.getElementById('lightBtn').style.color = 'white';
         document.getElementById('button1').style.backgroundColor = '#202020';
         document.getElementById('button1').style.color = 'white';
-        (D = true)
-        console.log(D)
+        (IsDarkmode = true)
+        
         
       }
 
@@ -138,7 +137,7 @@ function renderWeather(json) {
         document.getElementById('lightBtn').style.color = 'black';
         document.getElementById('button1').style.backgroundColor = '#FFFFFF';
         document.getElementById('button1').style.color = 'black';
-        (D = false)
+        (IsDarkmode = false)
       }
 
      
@@ -159,7 +158,7 @@ function renderWeather(json) {
       
       
       fetchWeather();
-      
+
       event.target.textLocation.value = ''
       console.log(weatherLocation)
     }
