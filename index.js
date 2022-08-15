@@ -14,7 +14,6 @@ function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderWeather(data));
-    // console.log(weatherLocation)
     
   }
 
@@ -26,7 +25,7 @@ function renderWeather(json) {
   let notify = document.getElementById("err");
 
   if (!json.main) {
-    notify.innerHTML = "City not recognized, Please verify spelling or try another city";
+    notify.innerHTML = "City not recognized, Please verify spelling or try another City";
     notify.style.display = "block"; }
     else {notify.style.display = "none"; }
 
