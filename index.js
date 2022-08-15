@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 let storage;
 let weatherLocation = 'Seattle';
 let IsDarkmode = false;
-
+let lat
+let lon
 
 
 function fetchWeather() {
@@ -17,6 +18,14 @@ function fetchWeather() {
     
   }
 
+  function fetchPolutionReport() {
+    fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
+    .then(response => response.json())
+    .then(data => renderWeather(data));
+    
+  }
+
+  https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d
 
 function renderWeather(json) {
 
