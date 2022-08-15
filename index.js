@@ -50,7 +50,6 @@ function renderWeather(json) {
         recommend();
         windAlert();
         renderDark();
-        // renderLike();
         renderLight();
         if (D)
        {document.getElementById('main').style.backgroundColor = '#202020';}
@@ -58,40 +57,8 @@ function renderWeather(json) {
       }
 
 
-      
-
-// need a way for the above code not to stack while changing locations multiple times
 
 
-
-// going to remove the comment section, it does not fully fit with the rest of the project
-
-// const newComment = function(event) {
-//     event.preventDefault()
-//     let input = event.target.textComment.value;
-//     appendComment(input);
-//     event.target.textComment.value = ''
-//   }
-
-
-// const appendComment = function(input) {
-//     let ul = document.querySelector('#comment')
-//     let li = document.createElement('li')
-//     let deleteBtn = document.createElement('button')
-    
-//     li.innerText = `${input} `
-//     deleteBtn.className = 'delete'
-//     deleteBtn.innerText = ' x'
-//     li.append(deleteBtn)
-//     ul.appendChild(li)
-  
-//     deleteBtn.addEventListener('click', () => removeComment(li))
-  
-//   }
-
-//   const removeComment = function(li) {
-//     li.remove()
-//   }
 
     function recommend() {
       const topBar = document.querySelector('.header')
@@ -174,9 +141,6 @@ function renderWeather(json) {
         (D = false)
       }
 
-
-
-  
      
     function renderLike() {
       document.getElementById('button1').addEventListener('click', () => liker());
@@ -191,10 +155,6 @@ function renderWeather(json) {
       event.preventDefault();
 
       let input = event.target.textLocation.value;
-      
-    //  document.getElementById('container').style.backgroundColor = '#202020';
-      
-    
       
       weatherLocation = `${input} `;
       
