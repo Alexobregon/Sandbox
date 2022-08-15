@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
+  renderLike();
 })
 let storage;
 let weatherLocation = 'Seattle';
@@ -49,7 +50,7 @@ function renderWeather(json) {
         recommend();
         windAlert();
         renderDark();
-        renderLike();
+        // renderLike();
         renderLight();
         if (D)
        {document.getElementById('main').style.backgroundColor = '#202020';}
