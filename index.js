@@ -155,24 +155,15 @@ function renderWeather(json) {
       event.preventDefault();
 
       let input = event.target.textLocation.value;
-      
       weatherLocation = `${input} `;
-      
-      // console.log(weatherLocation)
-      // fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
-      // .then(response => response.json())
-      // .then(data => renderWeather(data));  
       
       
       fetchWeather();
+      
       event.target.textLocation.value = ''
       console.log(weatherLocation)
     }
 
-
-    
-
-  
 
      
   fetchWeather();
