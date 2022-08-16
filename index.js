@@ -20,7 +20,7 @@ function fetchWeather() {
     
   }
 
-  function fetchPolutionReport() {
+  function fetchPollutionReport() {
     fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     // fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
@@ -39,7 +39,7 @@ function fetchWeather() {
     
   }
 
-  https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d
+ 
 
 function renderWeather(json) {
   lat = json.coord.lat;
@@ -55,7 +55,7 @@ function renderWeather(json) {
 
 
   storage = json
-    const div = document.querySelector('#main');
+    // const div = document.querySelector('#main');
 
     
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
@@ -189,4 +189,4 @@ function renderWeather(json) {
 
      
   fetchWeather();
-  fetchPolutionReport();
+  fetchPollutionReport();
