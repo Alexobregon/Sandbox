@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
   renderLike();
-
 })
 let storage;
 let weatherLocation = 'Seattle';
@@ -32,6 +31,8 @@ function fetchWeather() {
     console.log(json);
     storage = json
     
+
+
     if (json.list[0].main.aqi === 1) {
     document.querySelector('#airQ').innerHTML = "Air Quality is Good";
     document.querySelector('#airQ').style.backgroundColor = 'green';
@@ -114,6 +115,8 @@ function fetchWeather() {
 
 function renderWeather(json) {
 
+
+  
   
   console.log(json);
   let notify = document.getElementById("err");
@@ -123,7 +126,8 @@ function renderWeather(json) {
     notify.style.display = "block"; }
     else {notify.style.display = "none";
     lat = json.coord.lat;
-    lon = json.coord.lon; }
+    lon = json.coord.lon;
+ }
 
   storage = json
     // const div = document.querySelector('#main');
@@ -156,7 +160,7 @@ function renderWeather(json) {
 
     function recommend() {
       const topBar = document.querySelector('.header')
-    
+    console.log(weatherLocation)
       if (storage.main.temp <= 32) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Watch out for icy roads!";
         document.getElementById('main').style.backgroundColor = '#ACE3E8';
@@ -251,11 +255,11 @@ function renderWeather(json) {
       let input = event.target.textLocation.value;
       weatherLocation = `${input} `;
       
-      
+      console.log(weatherLocation)
       fetchWeather();
 
       event.target.textLocation.value = ''
-      console.log(weatherLocation)
+  
     }
 
 
