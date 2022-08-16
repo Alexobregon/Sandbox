@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 let storage;
 let weatherLocation = 'Seattle';
 let IsDarkmode = false;
-let lat
-let lon
+let lat = "-122.3321"
+let lon = "47.6062"
 
 
 function fetchWeather() {
@@ -19,10 +19,23 @@ function fetchWeather() {
   }
 
   function fetchPolutionReport() {
-    fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
+    // fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
+    fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
-    .then(data => renderWeather(data));
+    .then(data => renderPollution(data));
     
+  }
+
+  function renderPollution(json) {
+    console.log(json);
+    storage = json
+    
+    // document.querySelector('#right').innerHTML = "test"
+    document.querySelector('#airQ').innerHTML = json.list[0].main.aqi
+    document.querySelector('#no2').innerHTML = 'NO2 levels ' + json.list[0].components.no2;
+    document.querySelector('#pm10').innerHTML = 'pm10 levels ' + json.list[0].components.pm10;
+    document.querySelector('#o3').innerHTML = 'O3 levels ' + json.list[0].components.o3;
+    // json.list.components
   }
 
   https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d
@@ -174,4 +187,4 @@ function renderWeather(json) {
 
      
   fetchWeather();
-     
+  fetchPolutionReport();
