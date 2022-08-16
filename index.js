@@ -207,6 +207,7 @@ function renderWeather(json) {
         document.getElementById('lightBtn').style.color = 'white';
         document.getElementById('button1').style.backgroundColor = '#202020';
         document.getElementById('button1').style.color = 'white';
+        document.getElementById('airQ').style.color = 'black';
         (IsDarkmode = true)
         
         
