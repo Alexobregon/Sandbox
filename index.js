@@ -3,24 +3,27 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
   renderLike();
+
 })
 let storage;
 let weatherLocation = 'Seattle';
 let IsDarkmode = false;
-let lat = "-122.3321"
-let lon = "47.6062"
-
+let lat = 47.6062
+let lon = -122.3321
+// let lat = ""
+// let lon = ""
 
 function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderWeather(data));
+  
     
   }
 
   function fetchPolutionReport() {
-    // fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
-    fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
+    fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
+    // fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderPollution(data));
     
@@ -41,8 +44,9 @@ function fetchWeather() {
   https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d
 
 function renderWeather(json) {
-
-
+  lat = json.coord.lat;
+  lon = json.coord.lon;
+  
   console.log(json);
   let notify = document.getElementById("err");
 
