@@ -32,6 +32,7 @@ function fetchWeather() {
     console.log(json);
     storage = json
     
+    
     document.querySelector('#airQ').innerHTML = json.list[0].main.aqi
     document.querySelector('#no2').innerHTML = 'NO2 levels ' + json.list[0].components.no2;
     document.querySelector('#pm10').innerHTML = 'pm10 levels ' + json.list[0].components.pm10;
@@ -42,8 +43,8 @@ function fetchWeather() {
  
 
 function renderWeather(json) {
-  lat = json.coord.lat;
-  lon = json.coord.lon;
+  // lat = json.coord.lat;
+  // lon = json.coord.lon;
   
   console.log(json);
   let notify = document.getElementById("err");
@@ -51,8 +52,11 @@ function renderWeather(json) {
   if (!json.main) {
     notify.innerHTML = "City not recognized, Please verify spelling or try another City";
     notify.style.display = "block"; }
-    else {notify.style.display = "none"; }
+    else {notify.style.display = "none";
+    lat = json.coord.lat;
+    lon = json.coord.lon; }
 
+    console.log(json.coord.lat);
 
   storage = json
     // const div = document.querySelector('#main');
@@ -69,7 +73,7 @@ function renderWeather(json) {
         else {document.querySelector('#windSpeed').innerHTML = "Average wind speed of " + Math.floor(json.wind.speed) + " mph." }
         document.querySelector('#humidity').innerHTML = "Humidity at " + json.main.humidity + "%";
         
-    
+        fetchPollutionReport();
         recommend();
         windAlert();
         renderDark();
