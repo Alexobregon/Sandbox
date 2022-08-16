@@ -33,19 +33,24 @@ function fetchWeather() {
     storage = json
     
     if (json.list[0].main.aqi === 1) {
-    document.querySelector('#airQ').innerHTML = "Air Quality is Good"
+    document.querySelector('#airQ').innerHTML = "Air Quality is Good";
+    document.querySelector('#airQ').style.color = 'green';
     }
     if (json.list[0].main.aqi === 2) {
-      document.querySelector('#airQ').innerHTML = "Air Quality is Fair"
+      document.querySelector('#airQ').innerHTML = "Air Quality is Fair";
+     document.querySelector('#airQ').style.color = '#6c0';
       }
     if (json.list[0].main.aqi === 3) {
-        document.querySelector('#airQ').innerHTML = "Air Quality is Moderate"
+        document.querySelector('#airQ').innerHTML = "Air Quality is Moderate";
+        document.querySelector('#airQ').style.color = '#ff0';
       }
     if (json.list[0].main.aqi === 4) {
-        document.querySelector('#airQ').innerHTML = "Air Quality is Poor"
+        document.querySelector('#airQ').innerHTML = "Air Quality is Poor";
+        document.querySelector('#airQ').style.color = '#f90';
       }  
     if (json.list[0].main.aqi === 5) {
-        document.querySelector('#airQ').innerHTML = "Air Quality is Very Poor"
+        document.querySelector('#airQ').innerHTML = "Air Quality is Very Poor";
+        document.querySelector('#airQ').style.color = 'red';
       }
     if (!json.list[0].main.aqi >= 1 && json.list[0].main.aqi <= 5) {document.querySelector('#airQ').innerHTML = "Air Quality is unavailable at this time"}
 
