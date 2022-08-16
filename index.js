@@ -34,30 +34,79 @@ function fetchWeather() {
     
     if (json.list[0].main.aqi === 1) {
     document.querySelector('#airQ').innerHTML = "Air Quality is Good";
-    document.querySelector('#airQ').style.color = 'green';
+    document.querySelector('#airQ').style.backgroundColor = 'green';
     }
     if (json.list[0].main.aqi === 2) {
       document.querySelector('#airQ').innerHTML = "Air Quality is Fair";
-     document.querySelector('#airQ').style.color = '#6c0';
+     document.querySelector('#airQ').style.backgroundColor =  '#6c0';
       }
     if (json.list[0].main.aqi === 3) {
         document.querySelector('#airQ').innerHTML = "Air Quality is Moderate";
-        document.querySelector('#airQ').style.color = '#ff0';
+        document.querySelector('#airQ').style.backgroundColor = '#ff0';
       }
     if (json.list[0].main.aqi === 4) {
         document.querySelector('#airQ').innerHTML = "Air Quality is Poor";
-        document.querySelector('#airQ').style.color = '#f90';
+        document.querySelector('#airQ').style.backgroundColor = '#f90';
       }  
     if (json.list[0].main.aqi === 5) {
         document.querySelector('#airQ').innerHTML = "Air Quality is Very Poor";
-        document.querySelector('#airQ').style.color = 'red';
+        document.querySelector('#airQ').style.backgroundColor =  'red';
       }
     if (!json.list[0].main.aqi >= 1 && json.list[0].main.aqi <= 5) {document.querySelector('#airQ').innerHTML = "Air Quality is unavailable at this time"}
 
     document.querySelector('#no2').innerHTML = 'NO2 levels ' + json.list[0].components.no2;
+      if (json.list[0].components.no2 >= 0 && json.list[0].components.no2 <= 50) {
+        document.getElementById('no2').style.color = 'green'
+      }
+      if (json.list[0].components.no2 > 50 && json.list[0].components.no2 <= 100) {
+        document.getElementById('no2').style.color = '#6c0'
+      }
+      if (json.list[0].components.no2 > 100 && json.list[0].components.no2 <= 200) {
+        document.getElementById('no2').style.color = '#ff0'
+      }
+      if (json.list[0].components.no2 > 200 && json.list[0].components.no2 <= 400) {
+        document.getElementById('no2').style.color = '#f90'
+      }
+      if (json.list[0].components.no2 > 400) {
+        document.getElementById('no2').style.color = 'red'
+      }
+
     document.querySelector('#pm10').innerHTML = 'pm10 levels ' + json.list[0].components.pm10;
+
+      if (json.list[0].components.pm10 >= 0 && json.list[0].components.pm10 <= 25) {
+        document.getElementById('pm10').style.color = 'green'
+      }
+      if (json.list[0].components.pm10 > 25 && json.list[0].components.pm10 <= 50) {
+        document.getElementById('pm10').style.color = '#6c0'
+      }
+      if (json.list[0].components.pm10 > 50 && json.list[0].components.pm10 <= 90) {
+        document.getElementById('pm10').style.color = '#ff0'
+      }
+      if (json.list[0].components.pm10 > 90 && json.list[0].components.pm10 <= 180) {
+        document.getElementById('pm10').style.color = '#f90'
+      }
+      if (json.list[0].components.pm10 > 180) {
+        document.getElementById('pm10').style.color = '#red'
+      }
+
     document.querySelector('#o3').innerHTML = 'O3 levels ' + json.list[0].components.o3;
-        // document.querySelector('#airQ').innerHTML = json.list[0].main.aqi
+    
+    if (json.list[0].components.o3 >= 0 && json.list[0].components.o3 <= 60) {
+      document.getElementById('o3').style.color = 'green'
+    }
+    if (json.list[0].components.o3 > 60 && json.list[0].components.o3 <= 120) {
+      document.getElementById('o3').style.color = '#6c0'
+    }
+    if (json.list[0].components.o3 > 120 && json.list[0].components.o3 <= 180) {
+      document.getElementById('o3').style.color = '#ff0'
+    }
+    if (json.list[0].components.o3 > 180 && json.list[0].components.o3 <= 240) {
+      document.getElementById('o3').style.color = '#f90'
+    }
+    if (json.list[0].components.o3 > 240) {
+      document.getElementById('o3').style.color = 'red'
+    }
+    
 
   }
 
