@@ -32,19 +32,34 @@ function fetchWeather() {
     console.log(json);
     storage = json
     
-    
-    document.querySelector('#airQ').innerHTML = json.list[0].main.aqi
+    if (json.list[0].main.aqi === 1) {
+    document.querySelector('#airQ').innerHTML = "Air Quality is Good"
+    }
+    if (json.list[0].main.aqi === 2) {
+      document.querySelector('#airQ').innerHTML = "Air Quality is Fair"
+      }
+    if (json.list[0].main.aqi === 3) {
+        document.querySelector('#airQ').innerHTML = "Air Quality is Moderate"
+      }
+    if (json.list[0].main.aqi === 4) {
+        document.querySelector('#airQ').innerHTML = "Air Quality is Poor"
+      }  
+    if (json.list[0].main.aqi === 5) {
+        document.querySelector('#airQ').innerHTML = "Air Quality is Very Poor"
+      }
+    if (!json.list[0].main.aqi >= 1 && json.list[0].main.aqi <= 5) {document.querySelector('#airQ').innerHTML = "Air Quality is unavailable at this time"}
+
     document.querySelector('#no2').innerHTML = 'NO2 levels ' + json.list[0].components.no2;
     document.querySelector('#pm10').innerHTML = 'pm10 levels ' + json.list[0].components.pm10;
     document.querySelector('#o3').innerHTML = 'O3 levels ' + json.list[0].components.o3;
-    
+        // document.querySelector('#airQ').innerHTML = json.list[0].main.aqi
+
   }
 
  
 
 function renderWeather(json) {
-  // lat = json.coord.lat;
-  // lon = json.coord.lon;
+
   
   console.log(json);
   let notify = document.getElementById("err");
@@ -55,8 +70,6 @@ function renderWeather(json) {
     else {notify.style.display = "none";
     lat = json.coord.lat;
     lon = json.coord.lon; }
-
-    console.log(json.coord.lat);
 
   storage = json
     // const div = document.querySelector('#main');
