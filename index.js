@@ -10,8 +10,7 @@ let weatherLocation = 'Seattle';
 let IsDarkmode = false;
 let lat = 47.6062
 let lon = -122.3321
-// let lat = ""
-// let lon = ""
+
 
 function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
@@ -33,12 +32,11 @@ function fetchWeather() {
     console.log(json);
     storage = json
     
-    // document.querySelector('#right').innerHTML = "test"
     document.querySelector('#airQ').innerHTML = json.list[0].main.aqi
     document.querySelector('#no2').innerHTML = 'NO2 levels ' + json.list[0].components.no2;
     document.querySelector('#pm10').innerHTML = 'pm10 levels ' + json.list[0].components.pm10;
     document.querySelector('#o3').innerHTML = 'O3 levels ' + json.list[0].components.o3;
-    // json.list.components
+    
   }
 
   https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d
