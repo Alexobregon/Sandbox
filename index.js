@@ -131,69 +131,66 @@ function renderWeather(json) {
 
   storage = json
   weathericon = document.querySelector('#weatherIcon');
-
+  jsonIcon = json.weather[0].icon;
     
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
         weathericon.src = '/img/' + json.weather[0].icon + '.png';
-        if (json.weather[0].icon === '01d') {
+        if (jsonIcon === '01d') {
           weathericon.alt = "Clear sky icon"
         }
-        if (json.weather[0].icon === '01n') {
+        if (jsonIcon === '01n') {
           weathericon.alt = "Clear sky night icon"
         }
-        if (json.weather[0].icon === '02d') {
+        if (jsonIcon === '02d') {
           weathericon.alt = "Few clouds icon"
         }
-        if (json.weather[0].icon === '02n') {
+        if (jsonIcon === '02n') {
           weathericon.alt = "Few clouds night icon"
         }
-        if (json.weather[0].icon === '03d') {
+        if (jsonIcon === '03d') {
           weathericon.alt = "Scattered clouds icon"
         }
-        if (json.weather[0].icon === '03n') {
+        if (jsonIcon === '03n') {
           weathericon.alt = "Scattered clouds night icon"
         }
-        if (json.weather[0].icon === '04d') {
+        if (jsonIcon === '04d') {
           weathericon.alt = "Broken clouds icon"
         }
-        if (json.weather[0].icon === '04n') {
+        if (jsonIcon === '04n') {
           weathericon.alt = "Broken clouds night icon"
         }  
-        if (json.weather[0].icon === '09d') {
+        if (jsonIcon === '09d') {
           weathericon.alt = "Shower rain icon"
         }
-        if (json.weather[0].icon === '09n') {
+        if (jsonIcon === '09n') {
           weathericon.alt = "Shower rain night icon"
         }
-        if (json.weather[0].icon === '10d') {
+        if (jsonIcon === '10d') {
           weathericon.alt = "Rain icon"
         }
-        if (json.weather[0].icon === '10n') {
+        if (jsonIcon === '10n') {
           weathericon.alt = "Rain night icon"
         }
-        if (json.weather[0].icon === '11d') {
+        if (jsonIcon === '11d') {
           weathericon.alt = "Thunderstorm icon"
         }
-        if (json.weather[0].icon === '11n') {
+        if (jsonIcon === '11n') {
           weathericon.alt = "Thunderstorm night icon"
         }
-        if (json.weather[0].icon === '13d') {
+        if (jsonIcon === '13d') {
           weathericon.alt = "Snow icon"
         }
-        if (json.weather[0].icon === '13n') {
+        if (jsonIcon === '13n') {
           weathericon.alt = "Snow night icon"
         }
-        if (json.weather[0].icon === '50d') {
+        if (jsonIcon === '50d') {
           weathericon.alt = "Mist icon"
         }
-        if (json.weather[0].icon === '50n') {
+        if (jsonIcon === '50n') {
           weathericon.alt = "Mist night icon"
         }
         
-       
-
-
         document.querySelector('#feels').innerHTML = "Feels like " + Math.floor(json.main.feels_like) + " °F";
         document.querySelector('#tempMax').innerHTML = "High Tempature of " + Math.floor(json.main.temp_max) + "  °F";
         document.querySelector('#tempLow').innerHTML = "Low Tempature of " + Math.floor(json.main.temp_min) + "  °F";
@@ -218,26 +215,27 @@ function renderWeather(json) {
 
     function recommend() {
       const topBar = document.querySelector('.header')
+      let temperature = storage.main.temp
     console.log(weatherLocation)
-      if (storage.main.temp <= 32) {
+      if (temperature <= 32) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Watch out for icy roads!";
         document.getElementById('main').style.backgroundColor = '#ACE3E8';
-      } if (storage.main.temp > 32 && storage.main.temp < 40) {
+      } if (temperature > 32 && storage.main.temp < 40) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's cold Outside!";
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (storage.main.temp >= 40 && storage.main.temp < 60) {
+      } if (temperature >= 40 && storage.main.temp < 60) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's chilly outside!";
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      }  if (storage.main.temp >= 60 && storage.main.temp <= 67) {
+      }  if (temperature >= 60 && storage.main.temp <= 67) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Mild temperatures";
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (storage.main.temp >= 71 && storage.main.temp < 80) {
+      } if (temperature >= 71 && storage.main.temp < 80) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Nice warm weather!";
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (storage.main.temp >= 80 && storage.main.temp <= 90) {
+      } if (temperature >= 80 && storage.main.temp <= 90) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's hot outside!";
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (storage.main.temp >= 90) {
+      } if (temperature >= 90) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's very hot outside, stay hydrated!";
         document.getElementById('main').style.backgroundColor = '#F73718';
       }
