@@ -136,6 +136,44 @@ function renderWeather(json) {
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
         document.querySelector('#weatherIcon').src = '/img/' + json.weather[0].icon + '.png';
+        if (json.weather[0].icon === '01d') {
+          document.querySelector('#weatherIcon').alt = "Clear sky icon"
+        }
+        if (json.weather[0].icon === '01n') {
+          document.querySelector('#weatherIcon').alt = "Clear sky night icon"
+        }
+        if (json.weather[0].icon === '02d') {
+          document.querySelector('#weatherIcon').alt = "Few clouds icon"
+        }
+        if (json.weather[0].icon === '02n') {
+          document.querySelector('#weatherIcon').alt = "Few clouds night icon"
+        }
+        if (json.weather[0].icon === '03d') {
+          document.querySelector('#weatherIcon').alt = "Scattered clouds icon"
+        }
+        if (json.weather[0].icon === '03n') {
+          document.querySelector('#weatherIcon').alt = "Scattered clouds night icon"
+        }
+        if (json.weather[0].icon === '04d') {
+          document.querySelector('#weatherIcon').alt = "Broken clouds icon"
+        }
+        if (json.weather[0].icon === '04n') {
+        document.querySelector('#weatherIcon').alt = "Broken clouds night icon"
+        }  
+        if (json.weather[0].icon === '09d') {
+          document.querySelector('#weatherIcon').alt = "Shower rain icon"
+        }
+        if (json.weather[0].icon === '09n') {
+          document.querySelector('#weatherIcon').alt = "Shower rain night icon"
+        }
+        if (json.weather[0].icon === '10d') {
+          document.querySelector('#weatherIcon').alt = "Rain icon"
+        }
+        
+        
+       
+
+
         document.querySelector('#feels').innerHTML = "Feels like " + Math.floor(json.main.feels_like) + " °F";
         document.querySelector('#tempMax').innerHTML = "High Tempature of " + Math.floor(json.main.temp_max) + "  °F";
         document.querySelector('#tempLow').innerHTML = "Low Tempature of " + Math.floor(json.main.temp_min) + "  °F";
@@ -179,7 +217,7 @@ function renderWeather(json) {
       } if (storage.main.temp >= 80 && storage.main.temp <= 90) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's hot outside!";
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (storage.main.temp >= 90 && storage.main.temp <= 110) {
+      } if (storage.main.temp >= 90) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's very hot outside, stay hydrated!";
         document.getElementById('main').style.backgroundColor = '#F73718';
       }
