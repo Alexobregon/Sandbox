@@ -216,28 +216,29 @@ function renderWeather(json) {
     function recommend() {
       const topBar = document.querySelector('.header')
       let temperature = storage.main.temp
+      let main = document.getElementById('main')
     console.log(weatherLocation)
       if (temperature <= 32) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Watch out for icy roads!";
-        document.getElementById('main').style.backgroundColor = '#ACE3E8';
-      } if (temperature > 32 && storage.main.temp < 40) {
+        main.style.backgroundColor = '#ACE3E8';
+      } if (temperature > 32 && temperature < 40) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's cold Outside!";
-        document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (temperature >= 40 && storage.main.temp < 60) {
+        main.style.backgroundColor = '#d4d4d4';
+      } if (temperature >= 40 && temperature < 60) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's chilly outside!";
-        document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      }  if (temperature >= 60 && storage.main.temp <= 67) {
+        main.style.backgroundColor = '#d4d4d4';
+      }  if (temperature >= 60 && temperature <= 67) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Mild temperatures";
-        document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (temperature >= 71 && storage.main.temp < 80) {
+        main.style.backgroundColor = '#d4d4d4';
+      } if (temperature >= 71 && temperature < 80) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Nice warm weather!";
-        document.getElementById('main').style.backgroundColor = '#d4d4d4';
-      } if (temperature >= 80 && storage.main.temp <= 90) {
+        main.style.backgroundColor = '#d4d4d4';
+      } if (temperature >= 80 && temperature <= 90) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's hot outside!";
-        document.getElementById('main').style.backgroundColor = '#d4d4d4';
+        main.style.backgroundColor = '#d4d4d4';
       } if (temperature >= 90) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's very hot outside, stay hydrated!";
-        document.getElementById('main').style.backgroundColor = '#F73718';
+        main.style.backgroundColor = '#F73718';
       }
     }
 
