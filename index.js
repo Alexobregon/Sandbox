@@ -55,7 +55,7 @@ function fetchWeather() {
       }
     if (!json.list[0].main.aqi >= 1 && json.list[0].main.aqi <= 5) {document.querySelector('#airQ').innerHTML = "Air Quality is unavailable at this time"}
 
-    document.querySelector('#no2').innerHTML = 'NO2 levels ' + json.list[0].components.no2;
+    document.querySelector('#no2').innerHTML = 'NO2 level: ' + json.list[0].components.no2 + ' μg/m3';
       if (json.list[0].components.no2 >= 0 && json.list[0].components.no2 <= 50) {
         document.getElementById('no2').style.color = 'green'
       }
@@ -72,7 +72,7 @@ function fetchWeather() {
         document.getElementById('no2').style.color = 'red'
       }
 
-    document.querySelector('#pm10').innerHTML = 'pm10 levels ' + json.list[0].components.pm10;
+    document.querySelector('#pm10').innerHTML = 'pm10 level: ' + json.list[0].components.pm10 + ' μg/m3';
 
       if (json.list[0].components.pm10 >= 0 && json.list[0].components.pm10 <= 25) {
         document.getElementById('pm10').style.color = 'green'
@@ -90,7 +90,7 @@ function fetchWeather() {
         document.getElementById('pm10').style.color = '#red'
       }
 
-    document.querySelector('#o3').innerHTML = 'O3 levels ' + json.list[0].components.o3;
+    document.querySelector('#o3').innerHTML = 'O3 level: ' + json.list[0].components.o3 + ' μg/m3';
     
     if (json.list[0].components.o3 >= 0 && json.list[0].components.o3 <= 60) {
       document.getElementById('o3').style.color = 'green'
