@@ -169,7 +169,27 @@ function renderWeather(json) {
         if (json.weather[0].icon === '10d') {
           document.querySelector('#weatherIcon').alt = "Rain icon"
         }
-        
+        if (json.weather[0].icon === '10n') {
+          document.querySelector('#weatherIcon').alt = "Rain night icon"
+        }
+        if (json.weather[0].icon === '11d') {
+          document.querySelector('#weatherIcon').alt = "Thunderstorm icon"
+        }
+        if (json.weather[0].icon === '11n') {
+          document.querySelector('#weatherIcon').alt = "Thunderstorm night icon"
+        }
+        if (json.weather[0].icon === '13d') {
+          document.querySelector('#weatherIcon').alt = "Snow icon"
+        }
+        if (json.weather[0].icon === '13n') {
+          document.querySelector('#weatherIcon').alt = "Snow night icon"
+        }
+        if (json.weather[0].icon === '50d') {
+          document.querySelector('#weatherIcon').alt = "Mist icon"
+        }
+        if (json.weather[0].icon === '50n') {
+          document.querySelector('#weatherIcon').alt = "Mist night icon"
+        }
         
        
 
