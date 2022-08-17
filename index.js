@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 let storage;
 let weatherLocation = 'Seattle';
 let IsDarkmode = false;
-let lat = 47.6062
-let lon = -122.3321
+let lat = 47.6062;
+let lon = -122.3321;
 
 
 function fetchWeather() {
@@ -130,65 +130,65 @@ function renderWeather(json) {
  }
 
   storage = json
-    // const div = document.querySelector('#main');
+  weathericon = document.querySelector('#weatherIcon');
 
     
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
-        document.querySelector('#weatherIcon').src = '/img/' + json.weather[0].icon + '.png';
+        weathericon.src = '/img/' + json.weather[0].icon + '.png';
         if (json.weather[0].icon === '01d') {
-          document.querySelector('#weatherIcon').alt = "Clear sky icon"
+          weathericon.alt = "Clear sky icon"
         }
         if (json.weather[0].icon === '01n') {
-          document.querySelector('#weatherIcon').alt = "Clear sky night icon"
+          weathericon.alt = "Clear sky night icon"
         }
         if (json.weather[0].icon === '02d') {
-          document.querySelector('#weatherIcon').alt = "Few clouds icon"
+          weathericon.alt = "Few clouds icon"
         }
         if (json.weather[0].icon === '02n') {
-          document.querySelector('#weatherIcon').alt = "Few clouds night icon"
+          weathericon.alt = "Few clouds night icon"
         }
         if (json.weather[0].icon === '03d') {
-          document.querySelector('#weatherIcon').alt = "Scattered clouds icon"
+          weathericon.alt = "Scattered clouds icon"
         }
         if (json.weather[0].icon === '03n') {
-          document.querySelector('#weatherIcon').alt = "Scattered clouds night icon"
+          weathericon.alt = "Scattered clouds night icon"
         }
         if (json.weather[0].icon === '04d') {
-          document.querySelector('#weatherIcon').alt = "Broken clouds icon"
+          weathericon.alt = "Broken clouds icon"
         }
         if (json.weather[0].icon === '04n') {
-        document.querySelector('#weatherIcon').alt = "Broken clouds night icon"
+          weathericon.alt = "Broken clouds night icon"
         }  
         if (json.weather[0].icon === '09d') {
-          document.querySelector('#weatherIcon').alt = "Shower rain icon"
+          weathericon.alt = "Shower rain icon"
         }
         if (json.weather[0].icon === '09n') {
-          document.querySelector('#weatherIcon').alt = "Shower rain night icon"
+          weathericon.alt = "Shower rain night icon"
         }
         if (json.weather[0].icon === '10d') {
-          document.querySelector('#weatherIcon').alt = "Rain icon"
+          weathericon.alt = "Rain icon"
         }
         if (json.weather[0].icon === '10n') {
-          document.querySelector('#weatherIcon').alt = "Rain night icon"
+          weathericon.alt = "Rain night icon"
         }
         if (json.weather[0].icon === '11d') {
-          document.querySelector('#weatherIcon').alt = "Thunderstorm icon"
+          weathericon.alt = "Thunderstorm icon"
         }
         if (json.weather[0].icon === '11n') {
-          document.querySelector('#weatherIcon').alt = "Thunderstorm night icon"
+          weathericon.alt = "Thunderstorm night icon"
         }
         if (json.weather[0].icon === '13d') {
-          document.querySelector('#weatherIcon').alt = "Snow icon"
+          weathericon.alt = "Snow icon"
         }
         if (json.weather[0].icon === '13n') {
-          document.querySelector('#weatherIcon').alt = "Snow night icon"
+          weathericon.alt = "Snow night icon"
         }
         if (json.weather[0].icon === '50d') {
-          document.querySelector('#weatherIcon').alt = "Mist icon"
+          weathericon.alt = "Mist icon"
         }
         if (json.weather[0].icon === '50n') {
-          document.querySelector('#weatherIcon').alt = "Mist night icon"
+          weathericon.alt = "Mist night icon"
         }
         
        
@@ -253,6 +253,8 @@ function renderWeather(json) {
     function renderDark() {
       document.getElementById('darkBtn').addEventListener("click", () => darkMode());
       }
+
+
       function darkMode() {
         document.getElementById('main').style.backgroundColor = '#202020';
         document.getElementById('main').style.color = 'white';
