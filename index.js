@@ -32,6 +32,7 @@ function fetchWeather() {
     storage = json
     let airQDiv = document.querySelector('#airQ');
     let no2Div = document.getElementById('no2');
+    let pm10Div = document.getElementById('pm10');
     let jsonAirQualityIndex = json.list[0].main.aqi;
     let jsonNo2 = json.list[0].components.no2;
     let jsonPm10 = json.list[0].components.pm10;
@@ -58,7 +59,7 @@ function fetchWeather() {
       }
     if (!jsonAirQualityIndex >= 1 && jsonAirQualityIndex <= 5) {airQDiv.innerHTML = "Air Quality is unavailable at this time"}
 
-    document.querySelector('#no2').innerHTML = 'NO2 level: ' + jsonNo2 + ' μg/m3';
+      no2Div.innerHTML = 'NO2 level: ' + jsonNo2 + ' μg/m3';
       if (jsonNo2 >= 0 && jsonNo2 <= 50) {
         no2Div.style.color = 'green'
       }
@@ -75,22 +76,22 @@ function fetchWeather() {
         no2Div.style.color = 'red'
       }
 
-    document.querySelector('#pm10').innerHTML = 'pm10 level: ' + json.list[0].components.pm10 + ' μg/m3';
+      pm10Div.innerHTML = 'pm10 level: ' + jsonPm10 + ' μg/m3';
 
       if (jsonPm10 >= 0 && jsonPm10 <= 25) {
-        document.getElementById('pm10').style.color = 'green'
+        pm10Div.style.color = 'green'
       }
       if (jsonPm10 > 25 && jsonPm10 <= 50) {
-        document.getElementById('pm10').style.color = '#6c0'
+        pm10Div.style.color = '#6c0'
       }
       if (jsonPm10 > 50 && jsonPm10 <= 90) {
-        document.getElementById('pm10').style.color = '#ff0'
+        pm10Div.style.color = '#ff0'
       }
       if (jsonPm10 > 90 && jsonPm10 <= 180) {
-        document.getElementById('pm10').style.color = '#f90'
+        pm10Div.style.color = '#f90'
       }
       if (jsonPm10 > 180) {
-        document.getElementById('pm10').style.color = '#red'
+        pm10Div.style.color = '#red'
       }
 
     document.querySelector('#o3').innerHTML = 'O3 level: ' + json.list[0].components.o3 + ' μg/m3';
