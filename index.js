@@ -30,30 +30,31 @@ function fetchWeather() {
   function renderPollution(json) {
     console.log(json);
     storage = json
-    
+    let airQDiv = document.querySelector('#airQ');
+    let jsonAirQualityIndex = json.list[0].main.aqi;
 
 
-    if (json.list[0].main.aqi === 1) {
-    document.querySelector('#airQ').innerHTML = "Air Quality is Good";
-    document.querySelector('#airQ').style.backgroundColor = 'green';
+    if (jsonAirQualityIndex === 1) {
+      airQDiv.innerHTML = "Air Quality is Good";
+      airQDiv.style.backgroundColor = 'green';
     }
-    if (json.list[0].main.aqi === 2) {
-      document.querySelector('#airQ').innerHTML = "Air Quality is Fair";
-     document.querySelector('#airQ').style.backgroundColor =  '#6c0';
+    if (jsonAirQualityIndex === 2) {
+      airQDiv.innerHTML = "Air Quality is Fair";
+      airQDiv.style.backgroundColor =  '#6c0';
       }
-    if (json.list[0].main.aqi === 3) {
-        document.querySelector('#airQ').innerHTML = "Air Quality is Moderate";
-        document.querySelector('#airQ').style.backgroundColor = '#ff0';
+    if (jsonAirQualityIndex === 3) {
+      airQDiv.innerHTML = "Air Quality is Moderate";
+      airQDiv.style.backgroundColor = '#ff0';
       }
-    if (json.list[0].main.aqi === 4) {
-        document.querySelector('#airQ').innerHTML = "Air Quality is Poor";
-        document.querySelector('#airQ').style.backgroundColor = '#f90';
+    if (jsonAirQualityIndex === 4) {
+      airQDiv.innerHTML = "Air Quality is Poor";
+      airQDiv.style.backgroundColor = '#f90';
       }  
-    if (json.list[0].main.aqi === 5) {
-        document.querySelector('#airQ').innerHTML = "Air Quality is Very Poor";
-        document.querySelector('#airQ').style.backgroundColor =  'red';
+    if (jsonAirQualityIndex === 5) {
+      airQDiv.innerHTML = "Air Quality is Very Poor";
+      airQDiv.style.backgroundColor =  'red';
       }
-    if (!json.list[0].main.aqi >= 1 && json.list[0].main.aqi <= 5) {document.querySelector('#airQ').innerHTML = "Air Quality is unavailable at this time"}
+    if (!jsonAirQualityIndex >= 1 && jsonAirQualityIndex <= 5) {airQDiv.innerHTML = "Air Quality is unavailable at this time"}
 
     document.querySelector('#no2').innerHTML = 'NO2 level: ' + json.list[0].components.no2 + ' μg/m3';
       if (json.list[0].components.no2 >= 0 && json.list[0].components.no2 <= 50) {
