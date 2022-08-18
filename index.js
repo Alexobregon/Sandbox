@@ -31,8 +31,9 @@ function fetchWeather() {
     console.log(json);
     storage = json
     let airQDiv = document.querySelector('#airQ');
+    let no2Div = document.getElementById('no2');
     let jsonAirQualityIndex = json.list[0].main.aqi;
-    let jsonNo2 = json.list[0].components.no2
+    let jsonNo2 = json.list[0].components.no2;
 
     if (jsonAirQualityIndex === 1) {
       airQDiv.innerHTML = "Air Quality is Good";
@@ -58,19 +59,19 @@ function fetchWeather() {
 
     document.querySelector('#no2').innerHTML = 'NO2 level: ' + jsonNo2 + ' μg/m3';
       if (jsonNo2 >= 0 && jsonNo2 <= 50) {
-        document.getElementById('no2').style.color = 'green'
+        no2Div.style.color = 'green'
       }
       if (jsonNo2 > 50 && jsonNo2 <= 100) {
-        document.getElementById('no2').style.color = '#6c0'
+        no2Div.style.color = '#6c0'
       }
       if (jsonNo2 > 100 && jsonNo2 <= 200) {
-        document.getElementById('no2').style.color = '#ff0'
+        no2Div.style.color = '#ff0'
       }
       if (jsonNo2 > 200 && jsonNo2 <= 400) {
-        document.getElementById('no2').style.color = '#f90'
+        no2Div.style.color = '#f90'
       }
       if (jsonNo2 > 400) {
-        document.getElementById('no2').style.color = 'red'
+        no2Div.style.color = 'red'
       }
 
     document.querySelector('#pm10').innerHTML = 'pm10 level: ' + json.list[0].components.pm10 + ' μg/m3';
