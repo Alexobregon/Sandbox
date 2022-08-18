@@ -36,6 +36,7 @@ function fetchWeather() {
     let jsonAirQualityIndex = json.list[0].main.aqi;
     let jsonNo2 = json.list[0].components.no2;
     let jsonPm10 = json.list[0].components.pm10;
+    let jsono3 = json.list[0].components.o3;
 
     if (jsonAirQualityIndex === 1) {
       airQDiv.innerHTML = "Air Quality is Good";
@@ -94,21 +95,21 @@ function fetchWeather() {
         pm10Div.style.color = '#red'
       }
 
-    document.querySelector('#o3').innerHTML = 'O3 level: ' + json.list[0].components.o3 + ' μg/m3';
+    document.querySelector('#o3').innerHTML = 'O3 level: ' + jsono3 + ' μg/m3';
     
-    if (json.list[0].components.o3 >= 0 && json.list[0].components.o3 <= 60) {
+    if (jsono3 >= 0 && jsono3 <= 60) {
       document.getElementById('o3').style.color = 'green'
     }
-    if (json.list[0].components.o3 > 60 && json.list[0].components.o3 <= 120) {
+    if (jsono3 > 60 && jsono3 <= 120) {
       document.getElementById('o3').style.color = '#6c0'
     }
-    if (json.list[0].components.o3 > 120 && json.list[0].components.o3 <= 180) {
+    if (jsono3 > 120 && jsono3 <= 180) {
       document.getElementById('o3').style.color = '#ff0'
     }
-    if (json.list[0].components.o3 > 180 && json.list[0].components.o3 <= 240) {
+    if (jsono3 > 180 && jsono3 <= 240) {
       document.getElementById('o3').style.color = '#f90'
     }
-    if (json.list[0].components.o3 > 240) {
+    if (jsono3 > 240) {
       document.getElementById('o3').style.color = 'red'
     }
     
