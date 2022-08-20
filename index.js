@@ -1,9 +1,10 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
+document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
   renderLike();
 })
+
 let storage;
 let weatherLocation = 'Seattle';
 let IsDarkmode = false;
@@ -21,10 +22,12 @@ function fetchWeather() {
 
   function fetchPollutionReport() {
     fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
-    // fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderPollution(data));
     
+
+    // fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
+    // full api pull for Seattle. For testing and troubleshooting
   }
 
   function renderPollution(json) {
