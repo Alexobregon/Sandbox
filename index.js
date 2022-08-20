@@ -33,7 +33,7 @@ function fetchWeather() {
     let airQDiv = document.querySelector('#airQ');
     let no2Div = document.getElementById('no2');
     let pm10Div = document.getElementById('pm10');
-    let o3Div = document.getElementById('o3')
+    let o3Div = document.getElementById('o3');
     let jsonAirQualityIndex = json.list[0].main.aqi;
     let jsonNo2 = json.list[0].components.no2;
     let jsonPm10 = json.list[0].components.pm10;
@@ -121,10 +121,6 @@ function fetchWeather() {
  
 
 function renderWeather(json) {
-
-
-  
-  
   console.log(json);
   let notify = document.getElementById("err");
 
@@ -217,13 +213,10 @@ function renderWeather(json) {
       }
 
 
-
-
-
     function recommend() {
       const topBar = document.querySelector('.header')
       let temperature = storage.main.temp
-      let main = document.getElementById('main')
+      
     console.log(weatherLocation)
       if (temperature <= 32) {
         topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Watch out for icy roads!";
@@ -255,13 +248,12 @@ function renderWeather(json) {
       }
     }
     
-
     function renderDark() {
       document.getElementById('darkBtn').addEventListener("click", () => darkMode());
       }
-
-
+      
       function darkMode() {
+
         document.getElementById('main').style.backgroundColor = '#202020';
         document.getElementById('main').style.color = 'white';
         document.getElementById('middle').style.backgroundColor = '#202020';
@@ -279,13 +271,13 @@ function renderWeather(json) {
         document.getElementById('button1').style.color = 'white';
         document.getElementById('airQ').style.color = 'black';
         (IsDarkmode = true)
-        
-        
+         
       }
 
       function renderLight() {
         document.getElementById('lightBtn').addEventListener("click", () => lightMode());
       }
+
       function lightMode() {
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
         document.getElementById('main').style.color = 'black';
@@ -305,7 +297,6 @@ function renderWeather(json) {
         (IsDarkmode = false)
       }
 
-     
     function renderLike() {
       document.getElementById('button1').addEventListener('click', () => liker());
     }
@@ -325,10 +316,7 @@ function renderWeather(json) {
       fetchWeather();
 
       event.target.textLocation.value = ''
-  
     }
 
-
-     
   fetchWeather();
   fetchPollutionReport();
