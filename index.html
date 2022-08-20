@@ -5,66 +5,50 @@
 <link rel="stylesheet" href="index.css">
 
 </head>
-
-
 <body>
 
     <div class ="container" id="container">
+
         <div class="header">Seattle Current Weather Report
-            
         </div>
+
         <div class="content-small-left" id="main">
             Current Weather
             <h2 class="center" id="temp"></h2>
             <h3 class="center" id="feels"></h3>
             <h3 class="center" id="weather"></h3>
-            <img id="weatherIcon" src="">
-            
+            <img id="weatherIcon" src="" alt="Icon image of current weather">
         </div>
+
         <div class="content-small-middle" id="middle">
-            Additional Info
+            Additional Weather Info
             <h3 class="center" id="tempMax"></h3>
             <h3 class="center" id="tempLow"></h3>
             <h3 class="center" id="windSpeed"></h3>
             <h3 class="center" id="humidity"></h3>
-        
-        
         </div>
+
         <div class="content-small-right" id="right">
            Average Air Pollution Levels
             <h3 class="right" id="airQ"></h3>
             <h3 class="right" id="no2"></h3>
             <h3 class="right" id="pm10"></h3>
-            <h3 class="right" id="o3"></h3>
-            
-            <!-- <form id="commentForm">
-                <label>Comments</label>
-                <textarea id="textComment"></textarea>
-                <input type='submit' value='Create' id="create">
-
-
-            </form> -->
-            
-        
-        
+            <h3 class="right" id="o3"></h3>   
         </div>
-        <div class="footer">
-            
+
+        <div class="footer">         
             <form id="changeLocationForm">
                 <label class="change">Change City</label>
                 <textarea id="textLocation" class="change" placeholder="New City Name Here"></textarea>
-                <input type='submit' value='Change' class="change" id="change" alt="Change city submit button">
-                
+                <input type='submit' value='Change' class="change" id="change">
                 <div id="err" ></div>
-
-
-            </form>
-            
+            </form>       
         </div>
+
         <div class="bottom-small-right">
-            <button id="darkBtn"  type="button" alt="Dark mode button" >Dark mode</button>
-            <button id="lightBtn"  type="button" alt="Light mode button" >Light mode</button>
-            <button id="button1" class="button" alt="Like button" >Like</button>
+            <button id="darkBtn"  type="button"  >Dark mode</button>
+            <button id="lightBtn"  type="button"  >Light mode</button>
+            <button id="button1" class="button" >Like</button>
             <h3 id="likes">0</h3>
         </div>
     </div>
