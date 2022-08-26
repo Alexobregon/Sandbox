@@ -138,7 +138,6 @@ function renderWeather(json) {
     lat = json.coord.lat;
     lon = json.coord.lon;
     weatherLocation = json.name;
-    console.log(json.visibility);
  }
 
  let jsonVis = json.visibility;
@@ -147,6 +146,7 @@ function renderWeather(json) {
   storage = json
   weathericon = document.querySelector('#weatherIcon');
   jsonIcon = json.weather[0].icon;
+  console.log(json.visibility);
     
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
