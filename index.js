@@ -133,6 +133,8 @@ function renderWeather(json) {
     else {notify.style.display = "none";
     lat = json.coord.lat;
     lon = json.coord.lon;
+    weatherLocation = json.name;
+    console.log(weatherLocation)
  }
 
   storage = json
@@ -219,28 +221,36 @@ function renderWeather(json) {
     function recommend() {
       const topBar = document.querySelector('.header')
       let temperature = storage.main.temp
+
+      console.log(storage.main.temp)
+      // if (storage.name) {
+      //   weatherLocation = storage.name
+      // }
       
-    console.log(weatherLocation)
+    console.log(storage.name)
       if (temperature <= 32) {
-        topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Watch out for icy roads!";
+        topBar.innerHTML = `${storage.name} ` + "Current Weather Report. Watch out for icy roads!";
         main.style.backgroundColor = '#ACE3E8';
       } if (temperature > 32 && temperature < 40) {
-        topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's cold Outside!";
+        topBar.innerHTML = `${storage.name} ` + "Current Weather Report. It's cold Outside!";
         main.style.backgroundColor = '#d4d4d4';
       } if (temperature >= 40 && temperature < 60) {
-        topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's chilly outside!";
+        topBar.innerHTML = `${storage.name} ` + "Current Weather Report. It's chilly outside!";
         main.style.backgroundColor = '#d4d4d4';
-      }  if (temperature >= 60 && temperature <= 67) {
-        topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Mild temperatures";
+      }  if (temperature >= 60 && temperature < 68) {
+        topBar.innerHTML = `${storage.name} ` + "Current Weather Report. Mild temperatures";
         main.style.backgroundColor = '#d4d4d4';
-      } if (temperature >= 71 && temperature < 80) {
-        topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. Nice warm weather!";
+      } if (temperature >= 68 && temperature < 70) {
+          topBar.innerHTML = `${storage.name} ` + "Current Weather Report. Mild temperatures";
+          main.style.backgroundColor = '#d4d4d4';
+      } if (temperature >= 70 && temperature < 80) {
+        topBar.innerHTML = `${storage.name} ` + "Current Weather Report. Nice warm weather!";
         main.style.backgroundColor = '#d4d4d4';
-      } if (temperature >= 80 && temperature <= 90) {
-        topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's hot outside!";
+      } if (temperature >= 80 && temperature < 90) {
+        topBar.innerHTML = `${storage.name} ` + "Current Weather Report. It's hot outside!";
         main.style.backgroundColor = '#d4d4d4';
       } if (temperature >= 90) {
-        topBar.innerHTML = `${weatherLocation} ` + "Current Weather Report. It's very hot outside, stay hydrated!";
+        topBar.innerHTML = `${storage.name} ` + "Current Weather Report. It's very hot outside, stay hydrated!";
         main.style.backgroundColor = '#F73718';
       }
     }
