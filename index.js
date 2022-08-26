@@ -43,8 +43,6 @@ function fetchWeather() {
    
 
 
-  
-
     if (jsonAirQualityIndex === 1) {
       airQDiv.innerHTML = "Air Quality is Good";
       airQDiv.style.backgroundColor = 'green';
@@ -319,19 +317,18 @@ function renderWeather(json) {
      
     function liker() {
        let numbers = document.querySelector('#likes');
-          numbers.innerHTML = parseInt(numbers.innerHTML) + 1;
+          numbers.innerHTML = parseInt(numbers.innerHTML) + 1; // Update likes to + 1
         }
 
     function changeLocation(event) {
       event.preventDefault();
 
-      let input = event.target.textLocation.value;
+      let input = event.target.textLocation.value; // Text Value 
       weatherLocation = `${input} `;
       
-      console.log(weatherLocation)
       fetchWeather();
 
-      event.target.textLocation.value = ''
+      event.target.textLocation.value = ''; // Reset text
     }
 
   fetchWeather();
