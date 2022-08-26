@@ -6,11 +6,10 @@ document.querySelector('#changeLocationForm').addEventListener("submit", (event)
 })
 
 let storage;
-let weatherLocation = 'Seattle';
+let weatherLocation = 'Seattle'; // Starting City
+let lat = 47.6062; // Seattle lat
+let lon = -122.3321; // Seattle lon
 let IsDarkmode = false;
-let lat = 47.6062;
-let lon = -122.3321;
-
 
 function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
@@ -230,9 +229,6 @@ function renderWeather(json) {
       let temperature = storage.main.temp
 
       console.log(storage.main.temp)
-      // if (storage.name) {
-      //   weatherLocation = storage.name
-      // }
       
     console.log(storage.name)
       if (temperature <= 32) {
