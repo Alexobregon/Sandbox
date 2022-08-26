@@ -41,6 +41,10 @@ function fetchWeather() {
     let jsonNo2 = json.list[0].components.no2;
     let jsonPm10 = json.list[0].components.pm10;
     let jsono3 = json.list[0].components.o3;
+   
+
+
+  
 
     if (jsonAirQualityIndex === 1) {
       airQDiv.innerHTML = "Air Quality is Good";
@@ -134,9 +138,12 @@ function renderWeather(json) {
     lat = json.coord.lat;
     lon = json.coord.lon;
     weatherLocation = json.name;
-    console.log(weatherLocation)
+    console.log(json.visibility);
  }
 
+ let jsonVis = json.visibility;
+ let visDiv = document.getElementById('vis');
+ visDiv.innerHTML = Math.floor(jsonVis);
   storage = json
   weathericon = document.querySelector('#weatherIcon');
   jsonIcon = json.weather[0].icon;
