@@ -126,7 +126,16 @@ function fetchWeather() {
 
 function renderWeather(json) {
   console.log(json);
-  let notify = document.getElementById("err");
+ let notify = document.getElementById("err");
+ let jsonVis = json.visibility;
+ let visDiv = document.getElementById('vis');
+  storage = json
+  weathericon = document.querySelector('#weatherIcon');
+  jsonIcon = json.weather[0].icon;
+  document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
+  document.querySelector('#weather').innerHTML = json.weather[0].description;
+  weathericon.src = '/img/' + json.weather[0].icon + '.png';
+  console.log(json.visibility);
 
   if (!json.main) {
     notify.innerHTML = "City not recognized, Please verify spelling or try another City";
@@ -137,12 +146,6 @@ function renderWeather(json) {
     weatherLocation = json.name;
  }
 
- let jsonVis = json.visibility;
- let visDiv = document.getElementById('vis');
-  storage = json
-  weathericon = document.querySelector('#weatherIcon');
-  jsonIcon = json.weather[0].icon;
-  console.log(json.visibility);
 
         if (jsonVis === 10000) {
           visDiv.innerHTML = "Great Visibility";
@@ -162,11 +165,7 @@ function renderWeather(json) {
         if (jsonVis < 1000) {
           visDiv.innerHTML = "Very Bad Visibility";
         }
-        
-    
-        document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
-        document.querySelector('#weather').innerHTML = json.weather[0].description;
-        weathericon.src = '/img/' + json.weather[0].icon + '.png';
+
         if (jsonIcon === '01d') {
           weathericon.alt = "Clear sky icon"
         }
