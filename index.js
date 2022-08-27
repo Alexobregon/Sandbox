@@ -147,7 +147,15 @@ function renderWeather(json) {
         if (jsonVis === 10000) {
           visDiv.innerHTML = "Great Visibility";
         }
-        
+        if (jsonVis >= 8000 && jsonVis < 10000) {
+          visDiv.innerHTML = "Great Visibility";
+        }
+        if (jsonVis >= 8000 && jsonVis < 10000) {
+          visDiv.innerHTML = "Good Visibility";
+        }
+        if (jsonVis >= 5000 && jsonVis < 8000) {
+          visDiv.innerHTML = "Ok Visibility";
+        }
         
     
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
