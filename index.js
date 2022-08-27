@@ -32,6 +32,7 @@ function fetchWeather() {
   function renderPollution(json) {
     console.log(json);
     storage = json
+
     let airQDiv = document.querySelector('#airQ');
     let no2Div = document.getElementById('no2');
     let pm10Div = document.getElementById('pm10');
@@ -41,8 +42,6 @@ function fetchWeather() {
     let jsonPm10 = json.list[0].components.pm10;
     let jsono3 = json.list[0].components.o3;
    
-
-
     if (jsonAirQualityIndex === 1) {
       airQDiv.innerHTML = "Air Quality is Good";
       airQDiv.style.backgroundColor = 'green';
@@ -67,37 +66,37 @@ function fetchWeather() {
       airQDiv.innerHTML = "Air Quality is unavailable at this time"}
 
       no2Div.innerHTML = 'NO2 level: ' + jsonNo2 + ' μg/m3';
-      if (jsonNo2 >= 0 && jsonNo2 <= 50) {
+    if (jsonNo2 >= 0 && jsonNo2 <= 50) {
         no2Div.style.color = 'green'
       }
-      if (jsonNo2 > 50 && jsonNo2 <= 100) {
+    if (jsonNo2 > 50 && jsonNo2 <= 100) {
         no2Div.style.color = '#6c0'
       }
-      if (jsonNo2 > 100 && jsonNo2 <= 200) {
+    if (jsonNo2 > 100 && jsonNo2 <= 200) {
         no2Div.style.color = '#ff0'
       }
-      if (jsonNo2 > 200 && jsonNo2 <= 400) {
+    if (jsonNo2 > 200 && jsonNo2 <= 400) {
         no2Div.style.color = '#f90'
       }
-      if (jsonNo2 > 400) {
+    if (jsonNo2 > 400) {
         no2Div.style.color = 'red'
       }
 
       pm10Div.innerHTML = 'pm10 level: ' + jsonPm10 + ' μg/m3';
 
-      if (jsonPm10 >= 0 && jsonPm10 <= 25) {
+    if (jsonPm10 >= 0 && jsonPm10 <= 25) {
         pm10Div.style.color = 'green'
       }
-      if (jsonPm10 > 25 && jsonPm10 <= 50) {
+    if (jsonPm10 > 25 && jsonPm10 <= 50) {
         pm10Div.style.color = '#6c0'
       }
-      if (jsonPm10 > 50 && jsonPm10 <= 90) {
+    if (jsonPm10 > 50 && jsonPm10 <= 90) {
         pm10Div.style.color = '#ff0'
       }
-      if (jsonPm10 > 90 && jsonPm10 <= 180) {
+    if (jsonPm10 > 90 && jsonPm10 <= 180) {
         pm10Div.style.color = '#f90'
       }
-      if (jsonPm10 > 180) {
+    if (jsonPm10 > 180) {
         pm10Div.style.color = '#red'
       }
 
