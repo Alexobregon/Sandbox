@@ -139,11 +139,16 @@ function renderWeather(json) {
 
  let jsonVis = json.visibility;
  let visDiv = document.getElementById('vis');
- visDiv.innerHTML = Math.floor(jsonVis);
   storage = json
   weathericon = document.querySelector('#weatherIcon');
   jsonIcon = json.weather[0].icon;
   console.log(json.visibility);
+
+        if (jsonVis === 10000) {
+          visDiv.innerHTML = "Great Visibility";
+        }
+        
+        
     
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
         document.querySelector('#weather').innerHTML = json.weather[0].description;
@@ -258,7 +263,7 @@ function renderWeather(json) {
 
     function windAlert() {
       if (storage.wind.speed > 40) {
-        document.getElementById('middle').style.backgroundColor = '#FC342A';
+        document.getElementById('middle').style.backgroundColor = '#FC342A'; // High wind speed indicator background change
       }
     }
     
