@@ -159,6 +159,9 @@ function renderWeather(json) {
         if (jsonVis >= 1000 && jsonVis < 5000) {
           visDiv.innerHTML = "Bad Visibility";
         }
+        if (jsonVis < 1000) {
+          visDiv.innerHTML = "Very Bad Visibility";
+        }
         
     
         document.querySelector('#temp').innerHTML = Math.floor(json.main.temp) + " °F";
