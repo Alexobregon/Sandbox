@@ -151,10 +151,13 @@ function renderWeather(json) {
           visDiv.innerHTML = "Great Visibility";
         }
         if (jsonVis >= 8000 && jsonVis < 10000) {
-          visDiv.innerHTML = "Good Visibility";
+          visDiv.innerHTML = "Ok Visibility";
         }
         if (jsonVis >= 5000 && jsonVis < 8000) {
-          visDiv.innerHTML = "Ok Visibility";
+          visDiv.innerHTML = "Limited Visibility";
+        }
+        if (jsonVis >= 1000 && jsonVis < 5000) {
+          visDiv.innerHTML = "Bad Visibility";
         }
         
     
