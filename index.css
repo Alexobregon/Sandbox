@@ -86,8 +86,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 72px;
-    
-    
 }
 .center {
     padding: 20px 50px 3px;
@@ -107,7 +105,6 @@ body {
 #darkBtn {
     border-radius: 5px;
 }
-
 #darkBtn:hover {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
@@ -130,7 +127,6 @@ body {
     padding: 20px;
     display: flex;
     height: 40px;
-
 }
 .delete {
     border-radius: 10px;
@@ -172,7 +168,6 @@ body {
 input[type=submit] {
     background-color: #aeafae;
     border-radius: 15px;
-
 }
 #change {
     height: 70%;
@@ -202,7 +197,6 @@ input[type=submit] {
     color: #fff;
     font-weight: bold;
   }
-  
   .right {
     padding: 20px 50px 3px;
 }

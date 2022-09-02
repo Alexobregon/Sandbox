@@ -231,7 +231,7 @@ function renderWeather(json) {
        {document.getElementById('main').style.backgroundColor = '#202020';}
         
       }
-      
+
     function recommend() {
       const topBar = document.querySelector('.header')
       let temperature = storage.main.temp
@@ -295,7 +295,6 @@ function renderWeather(json) {
         document.getElementById('button1').style.color = 'white';
         document.getElementById('airQ').style.color = 'black';
         (IsDarkmode = true)
-         
       }
 
       function renderLight() {
@@ -332,7 +331,6 @@ function renderWeather(json) {
 
     function changeLocation(event) {
       event.preventDefault();
-
       let input = event.target.textLocation.value; // Text Value 
       weatherLocation = `${input} `;
       
