@@ -15,8 +15,6 @@ function fetchWeather() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + weatherLocation + '&units=imperial&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     .then(response => response.json())
     .then(data => renderWeather(data));
-  
-    
   }
 
   function fetchPollutionReport() {
@@ -24,13 +22,12 @@ function fetchWeather() {
     .then(response => response.json())
     .then(data => renderPollution(data));
     
-
     // fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat=47.6062&lon=-122.3321&appid=aac56d8ba335e529dfa836fcfbfb5d1d')
     // full api pull for Seattle. For testing and troubleshooting
   }
 
   function renderPollution(json) {
-    console.log(json);
+    console.log(json.list[0].main.aqi);
     storage = json
 
     let airQDiv = document.querySelector('#airQ');
@@ -121,8 +118,6 @@ function fetchWeather() {
 
   }
 
- 
-
 function renderWeather(json) {
   console.log(json);
  let notify = document.getElementById("err");
@@ -144,7 +139,6 @@ function renderWeather(json) {
     lon = json.coord.lon;
     weatherLocation = json.name;
  }
-
 
         if (jsonVis === 10000) {
           visDiv.innerHTML = "Great Visibility";
@@ -237,8 +231,7 @@ function renderWeather(json) {
        {document.getElementById('main').style.backgroundColor = '#202020';}
         
       }
-
-
+      
     function recommend() {
       const topBar = document.querySelector('.header')
       let temperature = storage.main.temp
