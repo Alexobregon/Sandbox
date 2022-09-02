@@ -114,8 +114,6 @@ function fetchWeather() {
     if (jsono3 > 240) {
       o3Div.style.color = 'red'
     }
-    
-
   }
 
 function renderWeather(json) {
@@ -131,14 +129,14 @@ function renderWeather(json) {
   weathericon.src = '/img/' + json.weather[0].icon + '.png';
   console.log(json.visibility);
 
-  if (!json.main) {
-    notify.innerHTML = "City not recognized, Please verify spelling or try another City";
-    notify.style.display = "block"; }
-    else {notify.style.display = "none";
-    lat = json.coord.lat;
-    lon = json.coord.lon;
-    weatherLocation = json.name;
- }
+        if (!json.main) {
+        notify.innerHTML = "City not recognized, Please verify spelling or try another City";
+        notify.style.display = "block"; }
+        else {notify.style.display = "none";
+        lat = json.coord.lat;
+        lon = json.coord.lon;
+        weatherLocation = json.name;
+        }
 
         if (jsonVis === 10000) {
           visDiv.innerHTML = "Great Visibility";
@@ -158,7 +156,6 @@ function renderWeather(json) {
         if (jsonVis < 1000) {
           visDiv.innerHTML = "Very Bad Visibility";
         }
-
         if (jsonIcon === '01d') {
           weathericon.alt = "Clear sky icon"
         }
@@ -238,7 +235,7 @@ function renderWeather(json) {
 
       console.log(storage.main.temp)
       
-    console.log(storage.name)
+      console.log(storage.name)
       if (temperature <= 32) {
         topBar.innerHTML = `${storage.name} ` + "Current Weather Report. Watch out for icy roads!";
         main.style.backgroundColor = '#ACE3E8';
@@ -274,9 +271,9 @@ function renderWeather(json) {
     
     function renderDark() {
       document.getElementById('darkBtn').addEventListener("click", () => darkMode());
-      }
+    }
       
-      function darkMode() {
+    function darkMode() {
 
         document.getElementById('main').style.backgroundColor = '#202020';
         document.getElementById('main').style.color = 'white';
@@ -295,11 +292,11 @@ function renderWeather(json) {
         document.getElementById('button1').style.color = 'white';
         document.getElementById('airQ').style.color = 'black';
         (IsDarkmode = true)
-      }
+    }
 
-      function renderLight() {
+    function renderLight() {
         document.getElementById('lightBtn').addEventListener("click", () => lightMode());
-      }
+    }
 
       function lightMode() {
         document.getElementById('main').style.backgroundColor = '#d4d4d4';
@@ -318,7 +315,7 @@ function renderWeather(json) {
         document.getElementById('button1').style.backgroundColor = '#FFFFFF';
         document.getElementById('button1').style.color = 'black';
         (IsDarkmode = false)
-      }
+    }
 
     function renderLike() {
       document.getElementById('button1').addEventListener('click', () => liker());
@@ -327,7 +324,7 @@ function renderWeather(json) {
     function liker() {
        let numbers = document.querySelector('#likes');
           numbers.innerHTML = parseInt(numbers.innerHTML) + 1; // Update likes to + 1
-        }
+    }
 
     function changeLocation(event) {
       event.preventDefault();
