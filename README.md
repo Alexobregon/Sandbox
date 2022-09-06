@@ -14,3 +14,5 @@ Added air pollution level area in place of comment section along with color matc
 Fixed multi event listeners being posted for each city search.
 
 Fixed bugs when updating city would not change some metrics.
+
+Reworked code to be more readable.

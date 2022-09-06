@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
 document.querySelector('#changeLocationForm').addEventListener("submit", (event) => changeLocation(event));
   renderLike();
