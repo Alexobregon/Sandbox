@@ -102,7 +102,7 @@ body {
 #lightBtn:hover {
     background-color: rgb(190, 190, 190);
     color: rgb(0, 0, 0);
-  }
+}
 #likes {
     display:inline-block;
     color: rgb(255, 255, 255);
@@ -170,7 +170,7 @@ input[type=submit] {
 #weatherIcon {
     width: 35%;
     height: auto;
-  }
+}
 #create {
     height: 70%; 
 }
@@ -182,8 +182,8 @@ input[type=submit] {
     margin: 5px;
     color: #fff;
     font-weight: bold;
-  }
-  .right {
+}
+.right {
     padding: 20px 50px 3px;
 }
 #airQ {

@@ -328,9 +328,7 @@ function renderWeather(json) {
       event.preventDefault();
       let input = event.target.textLocation.value; // Text Value 
       weatherLocation = `${input} `;
-      
       fetchWeather();
-
       event.target.textLocation.value = ''; // Reset text
     }
 
