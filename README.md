@@ -15,4 +15,4 @@ Fixed multi event listeners being posted for each city search.
 
 Fixed bugs when updating city would not change some metrics.
 
-Reworked code to be more readable.
+Reworked code to be more readable and spacing.
