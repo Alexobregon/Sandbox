@@ -224,16 +224,14 @@ function renderWeather(json) {
         renderLight();
         if (IsDarkmode)
        {document.getElementById('main').style.backgroundColor = '#202020';}
-        
       }
 
     function recommend() {
       const topBar = document.querySelector('.header')
       let temperature = storage.main.temp
-
       console.log(storage.main.temp)
-      
       console.log(storage.name)
+
       if (temperature <= 32) {
         topBar.innerHTML = `${storage.name} ` + "Current Weather Report. Watch out for icy roads!";
         main.style.backgroundColor = '#ACE3E8';
@@ -272,7 +270,6 @@ function renderWeather(json) {
     }
       
     function darkMode() {
-
         document.getElementById('main').style.backgroundColor = '#202020';
         document.getElementById('main').style.color = 'white';
         document.getElementById('middle').style.backgroundColor = '#202020';
