@@ -4,7 +4,7 @@ document.querySelector('#changeLocationForm').addEventListener("submit", (event)
 })
 
 let storage;
-let weatherLocation = 'Seattle'; // Starting City
+let weatherLocation = 'Seattle'; // Starting City/default
 let lat = 47.6062; // Seattle lat
 let lon = -122.3321; // Seattle lon
 let IsDarkmode = false;
