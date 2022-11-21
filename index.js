@@ -313,7 +313,7 @@ function renderWeather(json) {
     }
 
     function renderLike() {
-      document.getElementById('button1').addEventListener('click', () => liker());
+      document.getElementById('button1').addEventListener('click', () => liker()); // Render/get likes
     }
      
     function liker() {
