@@ -222,6 +222,7 @@ function renderWeather(json) {
         windAlert();
         renderDark();
         renderLight();
+        
         if (IsDarkmode)
        {document.getElementById('main').style.backgroundColor = '#202020';}
       }
